@@ -27,6 +27,7 @@ class Ball{
     }
     if(this.loc.y > height){
       this.vel.y = -this.vel.y;
+      this.loc.y = height-2;
     }
   }
 
