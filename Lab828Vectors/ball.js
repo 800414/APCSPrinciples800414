@@ -38,7 +38,7 @@ class Ball{
 
   render(){
     fill(this.clr);
-    ellipse(this.x, this.y, this.width, this.width);
+    ellipse(this.loc.x, this.loc.y, 11, 11);
     //fill(this.clr);
     //rect(this.x, this.y, this.width, this.width);
   }
