@@ -1,6 +1,6 @@
-//  Your Name
-// 	Date or version number
-//  This is a comment
+//  Olivia Cordero
+// 	Aug. 28
+//  Vectors
 //  The setup function function is called once when your program begins
 var balls = []
 function setup() {
