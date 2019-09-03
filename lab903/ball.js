@@ -5,7 +5,7 @@ class Ball{
     this.vel = createVector(dx, dy);
     this.acc = createVector(0, 1);
     this.clr = color(random(255), random(255), random(255));
-    this.id = id;
+    //this.id = id;
     //this.width = random(10,80);
 
   }
@@ -37,7 +37,7 @@ class Ball{
     if(this.id >= 0){
       distToMainBall < 250){
         // add attraction
-        this.acc = p5.Vector.sub(mainBall.loc, this.loc);\
+        this.acc = p5.Vector.sub(mainBall.loc, this.loc);
         this.acc.normalize();
         this.acc.mult(0.5);
       }

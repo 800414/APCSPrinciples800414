@@ -1,9 +1,9 @@
 //  Olivia Cordero
-// 	Aug. 28
-//  Vectors
+// Sept 03
+//  attraction
 //  The setup function function is called once when your program begins
-var balls = []
-var mainBall;
+var balls = [];
+var mainBall = [];
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -26,6 +26,7 @@ function setup() {
   // b3.run();
    //b4.run();
    runBalls();
+   runmainBall();
    }
    function loadBalls(n){
      for(var i = 0; i < n; i++){
@@ -36,5 +37,14 @@ function setup() {
 function runBalls(){
   for(var i = 0; i< balls.length; i++){
     balls[i].run();
+  }
+  function runmainBall(){
+    for(var i = 0; i< balls.length; i++){
+      mainBall[i].run();
+    }
+
+  }
+
+    }
   }
 }
