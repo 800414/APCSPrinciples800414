@@ -3,6 +3,7 @@
 //  Vectors
 //  The setup function function is called once when your program begins
 var balls = []
+var mainBall;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -28,7 +29,8 @@ function setup() {
    }
    function loadBalls(n){
      for(var i = 0; i < n; i++){
-       balls[i] = new Ball(random(width), random(height), random(-5,5), random(-5,5));
+       balls[i] = new Ball(random(width), random(height), random(-5,5), random(-5,5), i);
+       mainBall[i] = new Ball(random(width), random(height), random(-5,5), random(-5,5), i);
      }
    }
 function runBalls(){
