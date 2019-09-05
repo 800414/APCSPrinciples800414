@@ -17,6 +17,7 @@ class Ball {
   checkedges(){
     if(this.loc.x < 0){
       this.vel.x = -this.vel.x;
+      this.loc.x = 800; 
     }
     if(this.loc.x > width){
       this.vel.x = -this.vel.x;
@@ -32,17 +33,19 @@ class Ball {
   }
   update(){
     var distToMainBall;
+    var distToMainBall2;
     if(this.id > 2){
      distToMainBall = this.loc.dist(mainBall.loc);
+    distToMainBall2 = this.loc.dist(mainBall2.loc);
 
      if(distToMainBall < 250){
        //add attraction
        this.acc = p5.Vector.sub(mainBall.loc, this.loc);
        this.acc.normalize();
-       this.acc.mult(0.4);
+       this.acc.mult(0.5);
      }
-     if(distToMainBall < 150){ // add repulsion
-       this.acc = p5.Vector.sub(this.loc, mainBall.loc);
+     if(distToMainBall2 < 150){ // add repulsion
+       this.acc = p5.Vector.sub(this.loc, mainBall2.loc);
        this.acc.normalize();
        this.acc.mult(0.5);
      }
