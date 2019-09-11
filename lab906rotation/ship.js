@@ -33,6 +33,7 @@ class Ship {
       this.vel.add(this.acc);
       this.vel.limit(2);
       this.loc.add(this.vel);
+      this.loc.heading();
     }
 
     render(){
