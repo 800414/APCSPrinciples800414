@@ -3,32 +3,39 @@
 //  attraction
 //  The setup function function is called once when your program begins
 
-var Balls = []; //declares array
-var paddle1;
+var paddle;
+var ball;
+var paddlewidth;
+var paddleheight;
+paddlewidth = paddle.loc2.x;
+paddleheight = paddle.loc2.y;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   //background(5, 5, 5, 10);
-}
+  drawPaddle();
+  drawBall();
 
-loadBalls(1);
+}
 
 function draw() {
 background(5,5,5,20);
-
-  runBalls();
+  runPaddle();
+  runBall();
 }
 
-function loadObjects(x){
-  paddle1 = new Paddle(350, 50, 100, 25);
-  for(var i = 0; i < x; i++){
-    balls[i]=new Ball(400, 400, random (-8,8), random(-8,8));
-  }
+function drawPaddle() {
+  paddle = new Paddle(100, 400, 300, 50);
 }
 
-function runBalls(){
-  paddle1.run();
-  for(var i = 0; i < balls.length; i++){
-    balls[i].run();
+function drawBall() {
+  ball = new Ball(400, 50, 50, 50);
 }
+
+function runPaddle(){
+  paddle.run();
+}
+
+function runBall() {
+  ball.run();
 }

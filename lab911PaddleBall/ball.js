@@ -11,10 +11,11 @@ class Ball {
     this.checkedges();
     this.update();
     this.render();
+    this.isColliding();
   }
 
   checkedges(){
-    var paddle;
+
     if(this.loc.x < 0){
       this.vel.x = -this.vel.x;
     //  this.loc.x = 800;
@@ -31,15 +32,28 @@ class Ball {
       //this.loc.y = height -2;
     }
     update(){
+         this.vel.limit(10);
          this.vel.add(this.acc);
          this.loc.add(this.vel);
        }
     render(){
-         fill(this.clr);
-         ellipse(this.loc.x, this.loc.y, 20, 20);
+        fill(this.clr);
+        ellipse(this.loc.x, this.loc.y, 40, 40);
        }
-  }
+    isColliding() {
+      if(this.loc.x > paddle.loc.x &&
+         this.loc.x < paddle.loc.x + paddlewidth &&
+         this.loc.y > paddle.loc.y &&
+         this.loc.y < paddle.loc.y + paddleheight)
+         {
+           // return true;
+           this.vel.y = -this.vel.y
+         } else {
+           //return false
+         }
 
+    }
+}
 
 
 //  +++++++++++++++++++++++++++++++++++  End Ball Class
