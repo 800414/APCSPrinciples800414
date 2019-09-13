@@ -41,14 +41,15 @@ class Ball {
         ellipse(this.loc.x, this.loc.y, 40, 40);
        }
     isColliding() {
-      if(this.loc.x > paddle.loc.x &&
-         this.loc.x < paddle.loc.x + paddlewidth &&
-         this.loc.y > paddle.loc.y &&
-         this.loc.y < paddle.loc.y + paddleheight)
+      if(this.loc.x + 20 > paddle.loc.x &&
+         this.loc.x - 20 < paddle.loc.x + paddle.w &&
+         this.loc.y + 20 > paddle.loc.y &&
+         this.loc.y - 20 < paddle.loc.y + paddle.h)
          {
-           // return true;
-           this.vel.y = -this.vel.y
+
+           this.vel.y = -this.vel.y;
          } else {
+           this.vel.y = this.vel.y;
            //return false
          }
 

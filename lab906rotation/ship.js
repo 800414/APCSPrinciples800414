@@ -60,7 +60,7 @@ class Ship {
       this.angle = this.loc.heading();
       push();
       translate(this.loc.x, this.loc.y);
-      rotate(this.angle);
+      rotate(this.angle + HALF_PI);
       triangle(-5, 8, 5, 8, 0, -8);
       pop();
     }

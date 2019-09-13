@@ -5,16 +5,13 @@
 
 var paddle;
 var ball;
-var paddlewidth;
-var paddleheight;
-paddlewidth = paddle.loc2.x;
-paddleheight = paddle.loc2.y;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   //background(5, 5, 5, 10);
   drawPaddle();
   drawBall();
+
 
 }
 
@@ -29,7 +26,7 @@ function drawPaddle() {
 }
 
 function drawBall() {
-  ball = new Ball(400, 50, 50, 50);
+  ball = new Ball(random(0, 800), 0, 50, 50);
 }
 
 function runPaddle(){
