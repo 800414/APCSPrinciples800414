@@ -19,6 +19,7 @@ function draw() {
 background(5,5,5,20);
   runPaddle();
   runBall();
+  text("Score: " + score, 10, 20);
 }
 
 function drawPaddle() {
