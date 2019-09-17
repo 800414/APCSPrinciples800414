@@ -44,12 +44,17 @@ class Ball {
       if(this.loc.x + 20 > paddle.loc.x &&
          this.loc.x - 20 < paddle.loc.x + paddle.w &&
          this.loc.y + 20 > paddle.loc.y &&
-         this.loc.y - 20 < paddle.loc.y + paddle.h)
+         this.loc.y - 20 < paddle.loc.y + paddle.h) //bounce off paddle
          {
-
+           score++;
            this.vel.y = -this.vel.y;
          } else {
            this.vel.y = this.vel.y;
+        if(this.loc.x + 20 < paddle.loc.x &&
+           this.loc.x - 20 > paddle.loc.x + paddle.w &&
+           this.loc.y + 20 < paddle.loc.y &&
+           this.loc.y - 20 > paddle.loc.y + paddle.h)
+            this.vel.y = -this.vel.y;
            //return false
          }
 
