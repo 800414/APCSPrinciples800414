@@ -48,6 +48,7 @@ class Ball {
          {
            score++;
            this.vel.y = -this.vel.y;
+           this.clr = color(random(255), random(255), random(255));
          } else {
            this.vel.y = this.vel.y;
         if(this.loc.x + 20 < paddle.loc.x &&
@@ -55,6 +56,7 @@ class Ball {
            this.loc.y + 20 < paddle.loc.y &&
            this.loc.y - 20 > paddle.loc.y + paddle.h)
             this.vel.y = -this.vel.y;
+          
            //return false
          }
 
