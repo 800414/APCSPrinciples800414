@@ -56,7 +56,9 @@ class Ball {
            this.loc.y + 20 < paddle.loc.y &&
            this.loc.y - 20 > paddle.loc.y + paddle.h)
             this.vel.y = -this.vel.y;
-
+        if(this.loc.y >= 800){
+          gameState = 3
+        }
 
 
            //return false

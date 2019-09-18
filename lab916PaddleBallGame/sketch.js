@@ -42,6 +42,7 @@ function loadObjects(n) {
 }
 function startGame(){
   background(100,50,100,20);
+  fill(46,79,200);
   textSize(50);
   text('PADDLEBALL GAME!', 164, 300);
   fill(20, 100, 130);
@@ -89,4 +90,10 @@ runObjects();
 function runObjects(){
   paddle.run();
   for(var i = 0; i < balls.length; i++) balls[i].run();
+}
+function endGame(){
+  background(255,50,100,10);
+  textSize(50);
+  text('OOPS! GAME OVER!', 164, 300);
+
 }
