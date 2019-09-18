@@ -18,7 +18,7 @@ function setup() {
 }
 
 function draw() {
-background(255,255,255,20);
+background(255,255,255,10);
   //runObjects();
 //  fill(0, 255, 255);
 //textSize(30);
@@ -53,13 +53,29 @@ function startGame(){
   text('hard', 578, 575);
   rect(570, 600, 60, 60);
   if(mouseIsPressed &&
-    mouseX > 170 &&
-    mouseX < 230 &&
-    mouseY < 600 &&
-    mouseY > 660
-  ) {
-    gameState = 2;
-  }
+      mouseX > 170 &&
+      mouseX < 230 &&
+      mouseY > 600 &&
+      mouseY < 660){
+        gameState = 2;
+        console.log('easy');
+      }
+      if(mouseIsPressed &&
+        mouseX > 370 &&
+        mouseX < 430 &&
+        mouseY > 600 &&
+        mouseY < 660){
+          gameState = 2
+          console.log('medium');
+        }
+      if(mouseIsPressed &&
+        mouseX > 570 &&
+        mouseX < 630 &&
+        mouseY > 600 &&
+        mouseY < 660){
+          gameState = 2;
+          console.log('hard');
+        }
 }
 function multiGame(){
 
