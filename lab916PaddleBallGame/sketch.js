@@ -7,7 +7,7 @@
 var paddle;
 var balls = []
 var score = 0;
-var gameState = 2;
+var gameState = 1;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -18,7 +18,7 @@ function setup() {
 }
 
 function draw() {
-background(100,50,100,20);
+background(255,255,255,20);
   //runObjects();
 //  fill(0, 255, 255);
 //textSize(30);
@@ -41,6 +41,7 @@ function loadObjects(n) {
     paddle = new Paddle(250, 700, 300, 50);
 }
 function startGame(){
+  background(100,50,100,20);
   textSize(50);
   text('PADDLEBALL GAME!', 164, 300);
   fill(20, 100, 130);
@@ -51,6 +52,14 @@ function startGame(){
   rect(370, 600, 60, 60);
   text('hard', 578, 575);
   rect(570, 600, 60, 60);
+  if(mouseIsPressed &&
+    mouseX > 170 &&
+    mouseX < 230 &&
+    mouseY < 600 &&
+    mouseY > 660
+  ) {
+    gameState = 2;
+  }
 }
 function multiGame(){
 
