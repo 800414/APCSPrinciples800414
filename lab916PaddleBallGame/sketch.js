@@ -41,7 +41,7 @@ function loadObjects(n) {
     paddle = new Paddle(250, 700, 300, 50);
 }
 function startGame(){
-  background(100,50,100,20);
+  background(100,50,100);
   fill(46,79,200);
   textSize(50);
   text('PADDLEBALL GAME!', 164, 300);
@@ -94,6 +94,15 @@ function runObjects(){
 function endGame(){
   background(255,50,100,10);
   textSize(50);
-  text('OOPS! GAME OVER!', 164, 300);
-
+  text('OOPS! GAME OVER!', 160, 300);
+  textSize(25);
+  text('NEW GAME', 154, 575);
+  rect(176, 600, 80, 80);
+if(mouseIsPressed &&
+  mouseX > 176 &&
+  mouseX < 256 &&
+  mouseY > 600 &&
+  mouseY < 680){
+    gameState = 1;
+  }
 }
