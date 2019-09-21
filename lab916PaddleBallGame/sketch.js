@@ -7,6 +7,7 @@
 var paddle;
 var balls = []
 var score = 0;
+var lives = 5;
 var gameState = 1;
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -78,9 +79,6 @@ function startGame(){
           console.log('hard');
         }
 }
-function multiGame(){
-
-}
 function playGame(){
   fill(0, 255, 255);
 textSize(30);
@@ -104,5 +102,5 @@ if(mouseIsPressed &&
   mouseY > 600 &&
   mouseY < 680){
     gameState = 1;
+    }
   }
-}
