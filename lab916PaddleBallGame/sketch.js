@@ -46,6 +46,13 @@ function startGame(){
   fill(46,79,200);
   textSize(50);
   text('PADDLEBALL GAME!', 164, 300);
+  fill(46,79,148);
+  textSize(20);
+  text('Instructions: Click on one of the boxes below to choose game mode.', 120, 350);
+  text('As the difficulty level increases, so does the number of balls.', 120, 370);
+  text('Try to keep the balls from touching the bottom of the screen.', 120, 390);
+  text('When the ball reaches the bottom, the amount of lives will decrease by one.', 120, 410);
+  text('If the number of lifes equals zero, game over!', 120, 430);
   fill(20, 100, 130);
   textSize(25);
   text('easy', 176, 575);
@@ -59,6 +66,7 @@ function startGame(){
       mouseX < 230 &&
       mouseY > 600 &&
       mouseY < 660){
+        loadObjects(random(0,5));
         gameState = 2;
         console.log('easy');
       }
@@ -67,6 +75,7 @@ function startGame(){
         mouseX < 430 &&
         mouseY > 600 &&
         mouseY < 660){
+          loadObjects(random(6,10));
           gameState = 2
           console.log('medium');
         }
@@ -76,6 +85,7 @@ function startGame(){
         mouseY > 600 &&
         mouseY < 660){
           gameState = 2;
+          loadObjects(random(11,15));
           console.log('hard');
         }
 }
@@ -83,6 +93,7 @@ function playGame(){
   fill(0, 255, 255);
 textSize(30);
 text("Score: " + score, 10, 25);
+text("Lives: " + lives, 10, 60);
 runObjects();
 }
 function runObjects(){
