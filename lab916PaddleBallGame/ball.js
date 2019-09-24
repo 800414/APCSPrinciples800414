@@ -58,6 +58,9 @@ class Ball {
             this.vel.y = -this.vel.y;
         if(this.loc.y >= 800){
           lives--;
+        if(lives <= 0){
+          gameState = 3;
+        }
         }
           }
         }

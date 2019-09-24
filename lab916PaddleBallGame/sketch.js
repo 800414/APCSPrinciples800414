@@ -7,7 +7,7 @@
 var paddle;
 var balls = []
 var score = 0;
-var lives = 5;
+var lives = 10;
 var gameState = 1;
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -31,6 +31,8 @@ if(gameState === 1){
   playGame();
 }else if(gameState === 3){
   endGame();
+}else if(gameState === 4){
+  winGame();
 }
 }
 
@@ -45,7 +47,7 @@ function startGame(){
   background(100,50,100);
   fill(46,79,200);
   textSize(50);
-  text('PADDLEBALL GAME!', 164, 300);
+  text('HIT IT OR QUIT IT!', 164, 300);
   fill(46,79,148);
   textSize(20);
   text('Instructions: Click on one of the boxes below to choose game mode.', 120, 350);
@@ -66,7 +68,10 @@ function startGame(){
       mouseX < 230 &&
       mouseY > 600 &&
       mouseY < 660){
-        loadObjects(random(0,5));
+        loadObjects(random(1,4));
+        if(score>= 50){
+
+        }
         gameState = 2;
         console.log('easy');
       }
@@ -75,7 +80,7 @@ function startGame(){
         mouseX < 430 &&
         mouseY > 600 &&
         mouseY < 660){
-          loadObjects(random(6,10));
+          loadObjects(random(5,9));
           gameState = 2
           console.log('medium');
         }
@@ -85,7 +90,7 @@ function startGame(){
         mouseY > 600 &&
         mouseY < 660){
           gameState = 2;
-          loadObjects(random(11,15));
+          loadObjects(random(10,13));
           console.log('hard');
         }
 }
@@ -107,11 +112,17 @@ function endGame(){
   textSize(25);
   text('NEW GAME', 154, 575);
   rect(176, 600, 80, 80);
+  text('QUIT GAME', 520, 575);
+  rect(550, 600, 80, 80);
 if(mouseIsPressed &&
   mouseX > 176 &&
   mouseX < 256 &&
   mouseY > 600 &&
   mouseY < 680){
-    gameState = 1;
+    clear();
+    startGame();
+    score = 0;
+    lives = 10;
+    balls = [];
     }
   }
