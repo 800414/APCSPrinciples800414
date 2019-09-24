@@ -33,6 +33,8 @@ if(gameState === 1){
   endGame();
 }else if(gameState === 4){
   winGame();
+}else if(gameState === 5){
+  quitGame();
 }
 }
 
@@ -47,7 +49,7 @@ function startGame(){
   background(100,50,100);
   fill(46,79,200);
   textSize(50);
-  text('HIT IT OR QUIT IT!', 164, 300);
+  text('HIT IT OR QUIT IT!', 176, 300);
   fill(46,79,148);
   textSize(20);
   text('Instructions: Click on one of the boxes below to choose game mode.', 120, 350);
@@ -69,13 +71,10 @@ function startGame(){
       mouseY > 600 &&
       mouseY < 660){
         loadObjects(random(1,4));
-        if(score>= 50){
-
-        }
         gameState = 2;
         console.log('easy');
-      }
-      if(mouseIsPressed &&
+}
+    if(mouseIsPressed &&
         mouseX > 370 &&
         mouseX < 430 &&
         mouseY > 600 &&
@@ -93,19 +92,23 @@ function startGame(){
           loadObjects(random(10,13));
           console.log('hard');
         }
-}
+      }
+
 function playGame(){
   fill(0, 255, 255);
 textSize(30);
 text("Score: " + score, 10, 25);
 text("Lives: " + lives, 10, 60);
 runObjects();
+  if(score>= 100){
+    gameState = 4;
+  }
 }
 function runObjects(){
   paddle.run();
   for(var i = 0; i < balls.length; i++) balls[i].run();
 }
-function endGame(){
+function endGame(){ //lose screen
   background(255,50,100,10);
   textSize(50);
   text('OOPS! GAME OVER!', 160, 300);
@@ -114,15 +117,58 @@ function endGame(){
   rect(176, 600, 80, 80);
   text('QUIT GAME', 520, 575);
   rect(550, 600, 80, 80);
-if(mouseIsPressed &&
-  mouseX > 176 &&
-  mouseX < 256 &&
-  mouseY > 600 &&
-  mouseY < 680){
-    clear();
-    startGame();
-    score = 0;
-    lives = 10;
-    balls = [];
+if(mouseIsPressed && //restart game but skip start screen
+  mouseX >= 176 &&
+  mouseX <= 256 &&
+  mouseY >= 600 &&
+  mouseY <= 680){
+     paddle;
+     balls = [];
+     score = 0;
+     lives = 10;
+     gameState = 1;
+    }
+if(mouseIsPressed && //quit game
+    mouseX >= 550 &&
+    mouseX <= 630 &&
+    mouseY >= 600 &&
+    mouseY <= 680){
+      gameState = 5;
+
     }
   }
+  function winGame(){ //win screen
+    background(200,30,89,10);
+    textSize(50);
+    text('CONGRATULATIONS!', 160, 300);
+    text('YOU WIN!', 300,350);
+    textSize(25);
+    text('NEW GAME', 154, 575);
+    rect(176, 600, 80, 80);
+    text('QUIT GAME', 520, 575);
+    rect(550, 600, 80, 80);
+    if(mouseIsPressed && //restart game skipping start screen
+      mouseX >= 176 &&
+      mouseX <= 256 &&
+      mouseY >= 600 &&
+      mouseY <= 680){
+         paddle;
+         balls = [];
+         score = 0;
+         lives = 10;
+         gameState = 1;
+        }
+      if(mouseIsPressed && //quit game
+          mouseX >= 550 &&
+          mouseX <= 630 &&
+          mouseY >= 600 &&
+          mouseY <= 680){
+            gameState = 5;
+  }
+}
+function quitGame(){
+  background(200,40,98,0);
+  textSize(50);
+  text('BYE!', 300, 300);
+  text('HOPE YOU ENJOYED!:)', 150, 360);
+}
