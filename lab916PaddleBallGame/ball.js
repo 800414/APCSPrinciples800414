@@ -48,7 +48,10 @@ class Ball {
              this.loc.x - 20 < paddle.loc.x + paddle.w &&
              this.loc.y + 20 > paddle.loc.y &&
              this.loc.y - 20 < paddle.loc.y + paddle.h){
-            balls.splice(i, 1);
+               if(this.vel.y<0){
+               balls.splice(i, 1);
+               }
+
             score++;
           }
         }
