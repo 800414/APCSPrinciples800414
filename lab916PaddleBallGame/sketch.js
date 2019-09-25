@@ -1,6 +1,6 @@
 //  Olivia Cordero
 // Sept 03
-//  attraction
+//  PaddleBall
 //  The setup function function is called once when your program begins
 
 
@@ -100,7 +100,7 @@ textSize(30);
 text("Score: " + score, 10, 25);
 text("Lives: " + lives, 10, 60);
 runObjects();
-  if(score>= 100){
+  if(score>= 10){
     gameState = 4;
   }
 }
