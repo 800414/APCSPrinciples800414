@@ -45,18 +45,19 @@ function loadObjects(n) {
   }
     paddle = new Paddle(250, 700, 300, 50);
 }
-function startGame(){
+function startGame(){ //starting splash screen
   background(100,50,100);
   fill(46,79,200);
   textSize(50);
-  text('HIT IT OR QUIT IT!', 176, 300);
+  text('HIT IT OR QUIT IT!', 176, 300);  //game title
   fill(46,79,148);
   textSize(20);
   text('Instructions: Click on one of the boxes below to choose game mode.', 120, 350);
   text('As the difficulty level increases, so does the number of balls.', 120, 370);
-  text('Try to keep the balls from touching the bottom of the screen.', 120, 390);
+  text('Try to keep the balls from touching the bottom of the paddle.', 120, 390);
   text('When the ball reaches the bottom, the amount of lives will decrease by one.', 120, 410);
-  text('If the number of lifes equals zero, game over!', 120, 430);
+  text('And a new array of balls will appear', 120, 430)
+  text('If the number of lifes equals zero, game over!', 120, 450);
   fill(20, 100, 130);
   textSize(25);
   text('easy', 176, 575);
@@ -64,7 +65,7 @@ function startGame(){
   text('medium', 360, 575);
   rect(370, 600, 60, 60);
   text('hard', 578, 575);
-  rect(570, 600, 60, 60);
+  rect(570, 600, 60, 60);  //button pressed, load easy mode
   if(mouseIsPressed &&
       mouseX > 170 &&
       mouseX < 230 &&
@@ -74,7 +75,7 @@ function startGame(){
         gameState = 2;
         console.log('easy');
 }
-    if(mouseIsPressed &&
+    if(mouseIsPressed &&  //button pressed, load medium mode
         mouseX > 370 &&
         mouseX < 430 &&
         mouseY > 600 &&
@@ -83,7 +84,7 @@ function startGame(){
           gameState = 2
           console.log('medium');
         }
-      if(mouseIsPressed &&
+      if(mouseIsPressed &&  //button pressed, load hard mode
         mouseX > 570 &&
         mouseX < 630 &&
         mouseY > 600 &&
@@ -100,10 +101,14 @@ textSize(30);
 text("Score: " + score, 10, 25);
 text("Lives: " + lives, 10, 60);
 runObjects();
-  if(score>= 10){
-    gameState = 4;
+  if(score===balls.length + score){  //win once all balls are cleared
+    gameState=4;
   }
-}
+  if(lives <= 0){  //lose if lives are less than or equal to zero
+    gameState = 3;
+  }
+  }
+
 function runObjects(){
   paddle.run();
   for(var i = 0; i < balls.length; i++) balls[i].run();

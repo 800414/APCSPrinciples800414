@@ -43,23 +43,21 @@ class Ball {
          this.vel.add(this.acc);
          this.loc.add(this.vel);
         for(var i = balls.length - 1; i>= 0; i--){
-          if(balls[i].isColliding() &&
-             this.loc.x + 20 > paddle.loc.x &&
-             this.loc.x - 20 < paddle.loc.x + paddle.w &&
-             this.loc.y + 20 > paddle.loc.y &&
-             this.loc.y - 20 < paddle.loc.y + paddle.h){
-               if(this.vel.y<0){
-               balls.splice(i, 1);
-               }
-
-            score++;
-          }
-        }
+          if(balls[i].isColliding() && this.vel.y > 0) {
+         balls.splice(i, 1);
+         score++;
+       }else if(balls[i].isColliding() && this.vel.y < 0){
+         loadObjects(10*2);
+         lives--;
        }
+     }
+   }
+
     render(){
         fill(this.clr);
         ellipse(this.loc.x, this.loc.y, 40, 40);
        }
+
     isColliding() {
       if(this.loc.x + 20 > paddle.loc.x &&
          this.loc.x - 20 < paddle.loc.x + paddle.w &&
