@@ -6,7 +6,7 @@
 
 
 class Ball {
-  constructor(x, y, dx, dy){
+  constructor(x, y, dx, dy){  //defining aspects of ball
    this.loc = createVector(x, y);
    this.vel = createVector(dx, dy);
    this.acc = createVector(0,0);
@@ -22,10 +22,9 @@ class Ball {
   }
 
   checkedges(){
-
+//bounce off edges
     if(this.loc.x < 0){
       this.vel.x = -this.vel.x;
-    //  this.loc.x = 800;
     }
     if(this.loc.x > width){
       this.vel.x = -this.vel.x;
@@ -36,26 +35,26 @@ class Ball {
     if(this.loc.y > height){
       this.vel.y = -this.vel.y;
     }
-      //this.loc.y = height -2;
+
     }
     update(){
-         this.vel.limit(20);
+         this.vel.limit(20); //how fast balls can go
          this.vel.add(this.acc);
          this.loc.add(this.vel);
         for(var i = balls.length - 1; i>= 0; i--){
           if(balls[i].isColliding() && this.vel.y > 0) {
          balls.splice(i, 1);
-         score++;
+         score++;  //when ball touches top of paddle, ball disappears, +1 point
        }else if(balls[i].isColliding() && this.vel.y < 0){
          loadObjects(10*2);
-         lives--;
+         lives--;  //when ball touches bottom of paddle, 20 new balls appear, -1 life
        }
      }
    }
 
     render(){
         fill(this.clr);
-        ellipse(this.loc.x, this.loc.y, 40, 40);
+        ellipse(this.loc.x, this.loc.y, 40, 40);  //ball appearances
        }
 
     isColliding() {
@@ -64,26 +63,14 @@ class Ball {
          this.loc.y + 20 > paddle.loc.y &&
          this.loc.y - 20 < paddle.loc.y + paddle.h) //bounce off paddle
          {
-          // score++;
-           //this.vel.y = -this.vel.y;
            return true;
            this.clr = color(random(255), random(255), random(255));
-    //     } else {
-      //     this.vel.y = this.vel.y;
-      //  if(this.loc.x + 20 < paddle.loc.x &&
-      //     this.loc.x - 20 > paddle.loc.x + paddle.w &&
-        //   this.loc.y + 20 < paddle.loc.y &&
-        //   this.loc.y - 20 > paddle.loc.y + paddle.h){
-        //     this.vel.y = this.vel.y;
-        //     loadObjects(10);
            }
 
-  
+
           }
         }
 
-
-           //return false
 
 
 

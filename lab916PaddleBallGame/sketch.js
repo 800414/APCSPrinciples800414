@@ -26,7 +26,7 @@ background(255,255,255,10);
 //textSize(30);
 //text("Score: " + score, 10, 25);
 fill(2, 2, 2); //splash screen code
-if(gameState === 1){
+if(gameState === 1){  //different screens/modes of games
   startGame();
 }else if(gameState === 2){
   playGame();
@@ -40,7 +40,7 @@ if(gameState === 1){
 }
 
 
-function loadObjects(n) {
+function loadObjects(n) { //make balls and paddle appear
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(800),random(300), random(0, 5), random(0, 5));
   }
@@ -76,7 +76,7 @@ function startGame(){ //starting splash screen
       mouseX < 230 &&
       mouseY > 600 &&
       mouseY < 660){
-        loadObjects(random(1,4));
+        loadObjects(random(1,5));
         gameState = 2;
         console.log('easy');
 }
@@ -85,7 +85,7 @@ function startGame(){ //starting splash screen
         mouseX < 430 &&
         mouseY > 600 &&
         mouseY < 660){
-          loadObjects(random(5,9));
+          loadObjects(random(6,10));
           gameState = 2
           console.log('medium');
         }
@@ -95,7 +95,7 @@ function startGame(){ //starting splash screen
         mouseY > 600 &&
         mouseY < 660){
           gameState = 2;
-          loadObjects(random(10,13));
+          loadObjects(random(11,15));
           console.log('hard');
         }
       }
@@ -103,14 +103,14 @@ function startGame(){ //starting splash screen
 function playGame(){
   fill(0, 255, 255);
 textSize(30);
-text("Score: " + score, 10, 25);
-text("Lives: " + lives, 10, 60);
+text("Score: " + score, 10, 25); //score in top left corner
+text("Lives: " + lives, 10, 60); //number of lives in top left corner below score
 runObjects();
   if(score===balls.length + score){  //win once all balls are cleared
     gameState=4;
   }
   if(lives <= 0){  //lose if lives are less than or equal to zero
-    gameState = 3;
+    gameState = 3;  //losing screen
   }
   }
 
@@ -132,7 +132,7 @@ if(mouseIsPressed && //restart game but skip start screen
   mouseX <= 256 &&
   mouseY >= 600 &&
   mouseY <= 680){
-     paddle;
+     paddle;  //redefining original variables
      balls = [];
      score = 0;
      lives = 10;
@@ -143,7 +143,7 @@ if(mouseIsPressed && //quit game
     mouseX <= 630 &&
     mouseY >= 600 &&
     mouseY <= 680){
-      gameState = 5;
+      gameState = 5; //quitting game screen
 
     }
   }
@@ -162,7 +162,7 @@ if(mouseIsPressed && //quit game
       mouseX <= 256 &&
       mouseY >= 600 &&
       mouseY <= 680){
-         paddle;
+         paddle;  //redefining original variables
          balls = [];
          score = 0;
          lives = 10;
@@ -176,7 +176,7 @@ if(mouseIsPressed && //quit game
             gameState = 5;
   }
 }
-function quitGame(){
+function quitGame(){  //quit game scrren
   background(200,40,98,0);
   textSize(50);
   text('BYE!', 300, 300);
