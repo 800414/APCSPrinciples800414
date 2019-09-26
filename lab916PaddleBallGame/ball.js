@@ -39,7 +39,7 @@ class Ball {
       //this.loc.y = height -2;
     }
     update(){
-         this.vel.limit(10);
+         this.vel.limit(20);
          this.vel.add(this.acc);
          this.loc.add(this.vel);
         for(var i = balls.length - 1; i>= 0; i--){
@@ -70,26 +70,21 @@ class Ball {
            this.clr = color(random(255), random(255), random(255));
     //     } else {
       //     this.vel.y = this.vel.y;
-        if(this.loc.x + 20 < paddle.loc.x &&
-           this.loc.x - 20 > paddle.loc.x + paddle.w &&
-           this.loc.y + 20 < paddle.loc.y &&
-           this.loc.y - 20 > paddle.loc.y + paddle.h){
-             this.vel.y = this.vel.y;
-             loadObjects(10);
+      //  if(this.loc.x + 20 < paddle.loc.x &&
+      //     this.loc.x - 20 > paddle.loc.x + paddle.w &&
+        //   this.loc.y + 20 < paddle.loc.y &&
+        //   this.loc.y - 20 > paddle.loc.y + paddle.h){
+        //     this.vel.y = this.vel.y;
+        //     loadObjects(10);
            }
 
-        if(this.loc.y >= 800){
-          lives--;
-        if(lives <= 0){
-          gameState = 3;
-        }
-        }
+  
           }
         }
 
 
            //return false
-         }
+
 
 
 

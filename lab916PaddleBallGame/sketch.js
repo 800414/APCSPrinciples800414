@@ -9,6 +9,7 @@ var balls = []
 var score = 0;
 var lives = 10;
 var gameState = 1;
+var button = []
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -45,6 +46,10 @@ function loadObjects(n) {
   }
     paddle = new Paddle(250, 700, 300, 50);
 }
+
+//function loadButtons(n) {
+//  button = new Button(this.loc.x, 575, 80, 80);
+//}
 function startGame(){ //starting splash screen
   background(100,50,100);
   fill(46,79,200);
@@ -55,8 +60,8 @@ function startGame(){ //starting splash screen
   text('Instructions: Click on one of the boxes below to choose game mode.', 120, 350);
   text('As the difficulty level increases, so does the number of balls.', 120, 370);
   text('Try to keep the balls from touching the bottom of the paddle.', 120, 390);
-  text('When the ball reaches the bottom, the amount of lives will decrease by one.', 120, 410);
-  text('And a new array of balls will appear', 120, 430)
+  text('When the ball reaches the bottom, the amount of lives will decrease by one', 120, 410);
+  text('And a new array of balls will appear.', 120, 430)
   text('If the number of lifes equals zero, game over!', 120, 450);
   fill(20, 100, 130);
   textSize(25);
