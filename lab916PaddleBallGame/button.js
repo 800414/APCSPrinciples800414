@@ -4,16 +4,21 @@
 //setup function is called once when program begins
 
 class Button {
-  constructor(x, y, w, h, color, loc) //determining parts of buttons
-  this.loc = createVector(x, y);
-  this.w = 80;
-  this.h = 80;
-  this.clr = color(20,100,130);
-}
+  constructor(x, y, msg) {
+    this.loc = createVector(x, y);
+    this.msg = msg;
+    this.clr = color(20, 100, 130);
+  }//determining parts of buttons
+
+
 run(){
   this.render();
 }
 render() {
   fill(this.clr);
-  rect(this.loc.x, 600, this.w, this.h); // square shaped button 
+  rect(this.loc.x, 600, 80, 80); // square shaped button
+  fill(20, 100, 130);
+  textSize(25);
+  text(this.msg, this.loc.x + 10, this.loc.y - 20);
+}
 }
