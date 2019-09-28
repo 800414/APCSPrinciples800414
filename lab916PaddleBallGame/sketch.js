@@ -99,13 +99,13 @@ function startGame(){ //starting splash screen
           console.log('hard');
         }
       }
-function createButtons(){
-  EasyButton = new Button(170, 600,'easy');
-  MediumButton = new Button(370, 600, 'medium');
-  HardButton = new Button(570, 600, 'hard');
-  PlayAgainButton = new Button(176, 700, 'new game');
-  QuitButton = new Button(550, 700, 'quit game');
-  EasyButton.run();
+function createButtons(){  //making buttons with different functions
+  EasyButton = new Button(170, 600,'easy');  //appears in start screen
+  MediumButton = new Button(370, 600, 'medium'); //appears in start scrren
+  HardButton = new Button(570, 600, 'hard'); //appears in start screen
+  PlayAgainButton = new Button(176, 450, 'new game'); //appears in end and win game
+  QuitButton = new Button(550, 450, 'quit game'); //appears in end and win game
+  EasyButton.run();  //to make buttons appear
   MediumButton.run();
   HardButton.run();
 }
@@ -134,11 +134,11 @@ function endGame(){ //lose screen
   text('OOPS! GAME OVER!', 160, 300);
   PlayAgainButton.run();
   QuitButton.run();
-if(mouseIsPressed && //restart game but skip start screen
+if(mouseIsPressed && //restart game
   mouseX >= 176 &&
   mouseX <= 256 &&
-  mouseY >= 700 &&
-  mouseY <= 780){
+  mouseY >= 450 &&
+  mouseY <= 530){
      paddle;  //redefining original variables
      balls = [];
      score = 0;
@@ -148,8 +148,8 @@ if(mouseIsPressed && //restart game but skip start screen
 if(mouseIsPressed && //quit game
     mouseX >= 550 &&
     mouseX <= 630 &&
-    mouseY >= 700 &&
-    mouseY <= 780){
+    mouseY >= 450 &&
+    mouseY <= 530){
       gameState = 5; //quitting game screen
 
     }
@@ -161,11 +161,11 @@ if(mouseIsPressed && //quit game
     text('YOU WIN!', 300,350);
     PlayAgainButton.run();
     QuitButton.run();
-    if(mouseIsPressed && //restart game skipping start screen
+    if(mouseIsPressed && //restart game
       mouseX >= 176 &&
       mouseX <= 256 &&
-      mouseY >= 700 &&
-      mouseY <= 780){
+      mouseY >= 450 &&
+      mouseY <= 530){
          paddle;  //redefining original variables
          balls = [];
          score = 0;
@@ -175,8 +175,8 @@ if(mouseIsPressed && //quit game
       if(mouseIsPressed && //quit game
           mouseX >= 550 &&
           mouseX <= 630 &&
-          mouseY >= 700 &&
-          mouseY <= 780){
+          mouseY >= 450 &&
+          mouseY <= 530){
             gameState = 5;
   }
 }
