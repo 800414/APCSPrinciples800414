@@ -60,6 +60,8 @@ function startGame(){ //starting splash screen
   lives = 5;
   background(100,50,100);
   fill(46,79,200);
+  textSize(30);
+  text('PADDLEBALL GAME', 260, 230);
   textSize(50);
   text('HIT IT OR QUIT IT!', 176, 300);  //game title
   fill(46,79,148);
