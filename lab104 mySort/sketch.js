@@ -9,9 +9,11 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
   function swap(list, a, b){
-    var temp = list[a];
-    list[a] = list[b];
-    list[a] = temp;
+    if(list[a]>list[b]){
+      var temp = list[a];
+      list[a] = list[b];
+      list[a] = temp
+    }
 }
 console.log(list);
 }
