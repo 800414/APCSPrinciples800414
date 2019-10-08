@@ -8,7 +8,6 @@
 //  Global variables
 // Declare squares[] as a global variable
 
-
 // put setup code here
 function setup() {
   var cnv = createCanvas(800, 800);

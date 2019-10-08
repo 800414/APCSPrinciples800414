@@ -14,6 +14,7 @@ constructor(x, y, clr) {
 }
 
 render(){
+  fill(this.clr);
   rect(this.x, this.y, 100, 100);
 }
 //function Sqr(){
