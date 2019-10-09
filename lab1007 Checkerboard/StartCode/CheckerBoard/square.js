@@ -1,5 +1,5 @@
-
-
+//Olivia Cordero
+//1007 CheckerBoard
 /*
 **  Square Constructor Function::
 **  eettlin
@@ -7,15 +7,20 @@
 */
 class Square {
 //  Add perameters to your constructor function
-constructor(x, y, clr) {
-  this.x = x;
-  this.y = y;
+constructor(x, y, w, h, clr) {
+  this.loc=createVector(x,y);
+  this.w = w;
+  this.h = h;
   this.clr = clr;
 }
 
 render(){
   fill(this.clr);
   rect(this.x, this.y, 100, 100);
+}
+run(){
+  this.render();
+  this.update();
 }
 //function Sqr(){
 //  Add instance variables to your constructor Function
