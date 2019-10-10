@@ -8,12 +8,8 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
 list = [6, 3, 9, 1, 7];
-console.log(list);
 list.sort();
 console.log(list);
-//list.sort();
-//console.log(list);
-
 }
 
 //  The draw function is called @ 30 fps
