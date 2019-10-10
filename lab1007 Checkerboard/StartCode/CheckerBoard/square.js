@@ -13,15 +13,15 @@ constructor(x, y, w, h, clr) {
   this.h = h;
   this.clr = clr;
 }
-
-render(){
-  fill(this.clr);
-  rect(this.x, this.y, 100, 100);
-}
 run(){
   this.render();
   this.update();
 }
+render(){
+  fill(this.clr);
+  rect(this.x, this.y, 100, 100);
+}
+
 //function Sqr(){
 //  Add instance variables to your constructor Function
 //What does a square need to know about itself??
