@@ -6,7 +6,8 @@ var list = [];
 var temp;
 function loadList(n){
   for(var i = 0; i < n; i++){// array until i < n
-    list.push(random(0, 10000)));//rand number from 0-10000
+    list.push(int(random(0, 10000)));//rand number from 0-10000
+}
 }
 
 
@@ -18,7 +19,7 @@ function setup() {
   loadList(10000);
   console.log(list);
   for(var i = 1; i < list.length; i++){
-    for(var j = list.length; j > 0; j--){
+    for(var j = i; j > 0; j--){
       if(list[j] < list[j - 1]){
         swap(list, j, j - 1);
       }
@@ -28,7 +29,6 @@ function setup() {
   var evenorodd = list.length % 2;
   var halfofevenlength = 0.5 * list.length;
   var halfofoddlength = (0.5 * list.length) - 0.5;
-  //console.log(halflengthodd);
   var median = 0;
   if(evenorodd === 0){
     median = (list[halfofevenlength] + list[halfofevenlength - 1])/2
@@ -38,10 +38,7 @@ function setup() {
     console.log('median: ' + median)
   }
 }
-
-
-
-function swap(list, a, b) {//swaps two variables
+function swap(list, a, b) {
   var temp = list[a];
   list[a] = list[b];
   list[b] = temp;
@@ -49,11 +46,6 @@ function swap(list, a, b) {//swaps two variables
 console.log(list);
 
 
-//  The draw function is called @ 30 fps
 //function draw() {
-////
-//}
-//  The draw function is called @ 30 fps
-function draw() {
 
-}
+//}
