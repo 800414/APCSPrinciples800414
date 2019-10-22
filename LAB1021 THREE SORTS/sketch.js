@@ -2,7 +2,7 @@
 // 	1021
 //  ALL THREE SORTS
 //  The setup function function is called once when your program begins
-var list = []; //worked together with gabby melamed on program bc not enough computers avail in class today
+var list = [];
 var temp;
 var bswaps = 0;
 var bcompares = 0;
@@ -67,7 +67,7 @@ function selectionSort() {
   }
   console.log('selection sort compares: ' + scompares);
   console.log('selection sort swaps: ' + sswaps);
-  console.log('selection sort time: ' + [t2-t1]);
+  console.log('selection sort time: ' + [t2-t1]/[1000]); //time elapsed in seconds
 }
 
 function insertionSort() {
@@ -84,7 +84,7 @@ function insertionSort() {
   }
   console.log('insertion sort compares: ' + icompares);
   console.log('insertion sort swaps: ' + iswaps);
-  console.log('insertion sort time:' + [t2-t1]);
+  console.log('insertion sort time:' + [t2-t1]/[1000]); //time elapsed within sort in seconds
 }
 
 function bubbleSort() {
@@ -101,5 +101,5 @@ function bubbleSort() {
  }
  console.log('bubble sort compares: ' + bcompares);
  console.log('bubble sort swaps: ' + bswaps);
- console.log('bubble sort time: ' + [t2-t1]);
+ console.log('bubble sort time: ' + [t2-t1]/1000); //time elapsed within sort recorded in secondsSSS
 }
