@@ -2,7 +2,7 @@
 // 	1021
 //  ALL THREE SORTS
 //  The setup function function is called once when your program begins
-var list = []; //worked together with gabby melamed on program bc not enough computers avail in class today 
+var list = []; //worked together with gabby melamed on program bc not enough computers avail in class today
 var temp;
 var bswaps = 0;
 var bcompares = 0;
@@ -13,7 +13,7 @@ var scompares = 0;
 
 function loadList(n){
   for(var i = 0; i < n; i++){//keeps adding numbers onto the array until i < n, the number of items in the array
-    list.push(int(random(0, 10)));//pushes a random integer between 0 and 1000 into the array
+    list.push(int(random(0, 10000)));//pushes a random integer between 0 and 1000 into the array
   }
 }//function generates a random array with as many numbers as the input is
 
@@ -22,17 +22,17 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  loadList(100);
+  loadList(1000);
   console.log(list);
   bubbleSort();
   console.log(list);
   list = [];
-  loadList(100);
+  loadList(1000);
   console.log(list);
   insertionSort();
   console.log(list);
   list = [];
-  loadList(100);
+  loadList(1000);
   console.log(list);
   selectionSort();
   console.log(list);
@@ -52,6 +52,7 @@ function swap(list, a, b) {//swaps two variables
 }
 
 function selectionSort() {
+  var t1 = millis();
   for(var i = 0; i < list.length - 1; i++){
   var index = i;
   for(var j = i + 1; j < list.length; j++){
@@ -62,35 +63,43 @@ function selectionSort() {
   }
   swap(list, index, i);
   sswaps++;
+  var t2 = millis();
   }
   console.log('selection sort compares: ' + scompares);
   console.log('selection sort swaps: ' + sswaps);
+  console.log('selection sort time: ' + [t2-t1]);
 }
 
 function insertionSort() {
+  var t1 = millis();
   for(var i = 1; i < list.length; i++){
     for(var j = i; j > 0; j--){
       icompares++;
       if(list[j] < list[j - 1]){
         swap(list, j, j - 1);
         iswaps++;
+        var t2 = millis();
       }
     }
   }
   console.log('insertion sort compares: ' + icompares);
   console.log('insertion sort swaps: ' + iswaps);
+  console.log('insertion sort time:' + [t2-t1]);
 }
 
 function bubbleSort() {
+  var t1 = millis();
   for (var i = list.length - 1; i > 0; i--){
    for (var j = 0; j < i; j++){
     bcompares++;
      if (list[j] > list[j+1]) {
        swap(list, j, j+1)
        bswaps++;
+       var t2 = millis();
      }
    }
  }
  console.log('bubble sort compares: ' + bcompares);
  console.log('bubble sort swaps: ' + bswaps);
+ console.log('bubble sort time: ' + [t2-t1]);
 }
