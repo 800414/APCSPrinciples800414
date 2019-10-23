@@ -22,20 +22,20 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
+  loadList(1000); //list of integers
+  console.log(list);
+  bubbleSort(); //run bubble sort
+  console.log(list); //display sorted list
+  list = [];  //reset and load new list
   loadList(1000);
-  console.log(list);
-  bubbleSort();
-  console.log(list);
-  list = [];
+  console.log(list); //show unsorted list
+  insertionSort();  //sort list through insertion method
+  console.log(list);  //show sorted list in console
+  list = [];  //reset and load new list
   loadList(1000);
-  console.log(list);
-  insertionSort();
-  console.log(list);
-  list = [];
-  loadList(1000);
-  console.log(list);
-  selectionSort();
-  console.log(list);
+  console.log(list);  //unsorted list shown in console
+  selectionSort();  //sort by selection
+  console.log(list);  //show newly shorted list
 
 
 }
@@ -45,28 +45,28 @@ function draw() {
 
 }
 
-function swap(list, a, b) {//swaps two variables
+function swap(list, a, b) {//swapping two variables
   var temp = list[a];
   list[a] = list[b];
   list[b] = temp;
 }
 
 function selectionSort() {
-  var t1 = millis();
+  var t1 = millis(); //begin time at start of sorting
   for(var i = 0; i < list.length - 1; i++){
   var index = i;
   for(var j = i + 1; j < list.length; j++){
-    scompares++;
+    scompares++; //number of compares within sort method
     if(list[j] < list[index]){
       index = j;
     }
   }
   swap(list, index, i);
-  sswaps++;
-  var t2 = millis();
+  sswaps++;  //number of swaps within sort method
+  var t2 = millis(); //time elapsed after sorting is completed
   }
-  console.log('selection sort compares: ' + scompares);
-  console.log('selection sort swaps: ' + sswaps);
+  console.log('selection sort compares: ' + scompares); //record on console
+  console.log('selection sort swaps: ' + sswaps); //record on console
   console.log('selection sort time: ' + [t2-t1]/[1000]); //time elapsed in seconds
 }
 
@@ -74,32 +74,32 @@ function insertionSort() {
   var t1 = millis();
   for(var i = 1; i < list.length; i++){
     for(var j = i; j > 0; j--){
-      icompares++;
+      icompares++;  //compare integers
       if(list[j] < list[j - 1]){
-        swap(list, j, j - 1);
+        swap(list, j, j - 1); //swap occurs
         iswaps++;
         var t2 = millis();
       }
     }
   }
-  console.log('insertion sort compares: ' + icompares);
+  console.log('insertion sort compares: ' + icompares);  //recording data in console
   console.log('insertion sort swaps: ' + iswaps);
   console.log('insertion sort time:' + [t2-t1]/[1000]); //time elapsed within sort in seconds
 }
 
-function bubbleSort() {
+function bubbleSort() {  //begin bubble sort
   var t1 = millis();
   for (var i = list.length - 1; i > 0; i--){
    for (var j = 0; j < i; j++){
-    bcompares++;
+    bcompares++;  //compare two numbers that are next to each other
      if (list[j] > list[j+1]) {
-       swap(list, j, j+1)
-       bswaps++;
+       swap(list, j, j+1)  //swap if greater number is to the left of smaller
+       bswaps++;  //record swap
        var t2 = millis();
      }
    }
  }
- console.log('bubble sort compares: ' + bcompares);
+ console.log('bubble sort compares: ' + bcompares);  //data put into console
  console.log('bubble sort swaps: ' + bswaps);
  console.log('bubble sort time: ' + [t2-t1]/1000); //time elapsed within sort recorded in secondsSSS
 }
