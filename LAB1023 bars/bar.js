@@ -1,8 +1,8 @@
 class Bar {
-  constructor(x, y, w, h, clr){
-    this.loc = createVector(x, y);
-    this.w = 80;
-    this.h = random(0, 800);
+  constructor(location){
+    this.loc = location;
+    this.w = barWidth;
+    this.h = height - this.loc.y;
     this.clr = color(random(255), random(255), random(255));
   }
   run(){
@@ -11,6 +11,6 @@ class Bar {
   }
   render(){
     fill(this.clr);
-    rect(this.loc.x, 800, this.w, this.h); //place bar at bottom of screen
+    rect(this.loc.x, this.loc.y, this.w, this.h);
   }
 }
