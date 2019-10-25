@@ -21,7 +21,7 @@ function setup() {
 //  The draw function is called @ 30 fps
 function draw() {
   background(20,10,100)
-frameRate(1);
+frameRate(20);
 runBars();
 }
 function loadBars(num){
