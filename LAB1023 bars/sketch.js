@@ -2,53 +2,57 @@
 // 	Date or version number
 //  This is a comment
 //  The setup function function is called once when your program begins
-var bars = [];
-var numBars
-var barWidth;
+var bars=[] ;
+var barWidth, barHeight;
+
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(5, 5, 5);
+  background(10, 5, 10);
   fill(200, 30, 150);
-  barWidth = 40;
-  numBars = width/barWidth;
 
-  loadBars(numBars);
-  runBars();
-
+loadBars();
 }
 
-//  The draw function is called @ 30 fps
 function draw() {
-  background(20,10,100)
-frameRate(20);
-runBars();
-}
-function loadBars(num){
-  for(var i = 0; i < num; i++){
-    var barHeight = Math.floor(random(height));
-    var loc = createVector(i*barWidth, barHeight);
-    bars[i] = new Bar(loc);
-  }
-  }
-function runBars(){
-  for(var i = 0; i < bars.length; i++){
+  frameRate(20);
+  for (var i = 0; i<bars.length; i++){
     bars[i].render();
   }
+selectionSort(bars);
 }
-function selectionSort(){
-for (var i = 0; i < bars.length - 1; i++){
-    var index = i;
-    for (var j = i + 1; j < bars.length; j++){
-if (bars[j] < bars[index]){
-index = j;
-    //  Swapping Code
-    var smallerBar = bars[index];
-    bars[index] = bars[i];
-    bars[i] = smallerBar;
-    loadBars();
-    runBars();
-  }
+
+function loadBars(){
+
+  for (var i = 0; i< 40; i++){
+    barWidth = (width/20);
+    barHeight = Math.floor(random(1, height));
+    bars[i]= new Bar(i*barWidth, height-barHeight, barWidth, barHeight);
   }
 }
+
+function  update(){
+  for(var i=0; i<bars.length; i++){
+    bars[i].set(i);
+}
+}
+
+function selectionSort(arr){
+  for(var i = 0; i < arr.length-1; i ++){ //moves end limit
+      var small = i;
+  for (var j = i+1 ; j < arr.length ; j++){
+      if(arr[j].getHeight() < arr[small].getHeight()){
+          small = j;
+          }
+        }
+        swap(arr, i , small);
+        update();
+      }
+
+  }
+
+function swap(arr, a, b){ //swap
+    var temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp;
 }

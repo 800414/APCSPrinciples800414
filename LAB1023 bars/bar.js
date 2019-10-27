@@ -1,16 +1,32 @@
 class Bar {
-  constructor(location){
-    this.loc = location;
-    this.w = barWidth;
-    this.h = height - this.loc.y;
-    this.clr = color(random(255), random(255), random(255));
-  }
-  run(){
-    this.render();
-  //  this.update();
-  }
-  render(){
-    fill(this.clr);
-    rect(this.loc.x, this.loc.y, this.w, this.h);
-  }
+
+constructor (x, y, w, h, clr){
+this.loc = createVector(x,y);
+
+this.w = w;
+this.h = h;
+}
+
+render(){
+  fill(200, 10, 20 );
+rect (this.loc.x, this.loc.y, this.w, this.h);
+
+}
+
+run(){
+  this.render();
+  this.update();
+}
+
+update(){
+
+}
+
+getHeight(){
+  return this.h;
+}
+set(i){
+  this.loc.x=i*25;
+
+}
 }
