@@ -10,16 +10,15 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(255);
   fill(200, 30, 150);
-
-loadBars();
+  loadBars();
+  frameRate(4);
+  for (var i = 0; i<bars.length; i++){
+  bars[i].render();
+}
 }
 
 function draw() {
-  frameRate(4);
-  for (var i = 0; i<bars.length; i++){
-    bars[i].render();
-  }
-selectionSort(bars);
+  bubbleSort();
 }
 
 function loadBars(){
@@ -34,26 +33,22 @@ function loadBars(){
 function  update(){
   for(var i=0; i<bars.length; i++){
     bars[i].set(i);
+    }
+    background(255);
+    for(var i=0; i<bars.length; i++){
+      bars[i].run();
+    }
 }
-}
-
-function selectionSort(bar){
-  for(var i = 0; i < bar.length-1; i ++){ //moves end limit
-      var smallerBar = i;
-  for (var j = i+1 ; j < bar.length ; j++){
-      if(bar[j].getHeight() < bar[smallerBar].getHeight()){
-          smallerBar = j;
-
-          }
-        }
-        swap(bar, i , smallerBar);
-        update();
-      }
-
+function bubbleSort(){
+  for (var x=0; x<bars.length-1;x++){
+    if(bars[x].getHeight()>bars[x+1].getHeight()){
+      swap(bars,x,x+1);
+      update();
+    }
   }
-
-function swap(arr, a, b){ //swap
-    var temp = arr[a];
-    arr[a] = arr[b];
-    arr[b] = temp;
+}
+function swap(list,a,b){
+  var temp=list[a];
+  list[a]=list[b];
+  list[b]=temp;
 }
