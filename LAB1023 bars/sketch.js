@@ -1,6 +1,6 @@
-//  Your Name
-// 	Date or version number
-//  This is a comment
+//  Olivia Cordero
+// 	oct 30
+//  bar sort
 //  The setup function function is called once when your program begins
 var bars=[];  //defining global variables
 var barWidth, barHeight;
