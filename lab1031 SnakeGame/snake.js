@@ -17,5 +17,9 @@ class Snake {
   update(){
 
   }
-
+keyReleased(){
+  if(keyCode === UP_ARROW){
+    this.loc.y = this.loc.y - this.h
+  }
+}
 }
