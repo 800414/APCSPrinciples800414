@@ -16,7 +16,7 @@ class Snake {
   }
 
   render(){  //how snake appear on screen
-  fill(143,47,68);
+  fill(255,182,193);
   rect (this.loc.x, this.loc.y, this.w, this.h);
   }
 
