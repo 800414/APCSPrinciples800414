@@ -1,9 +1,9 @@
 class Snake {
   constructor(x, y, w, h){
-    this.loc = createVector(x, y);
+    this.snake = createVector(x, y);
     //this.clr = random(color(255));
-    this.w = w;
-    this.h = h;
+    snake.w = w;
+    snake.h = h;
   }
 
   run(){  //call upon render and update functions to make snake appear properly
@@ -17,28 +17,28 @@ class Snake {
 
   render(){  //how snake appear on screen
   fill(255,182,193);
-  rect (this.loc.x, this.loc.y, this.w, this.h);
+  rect (this.snake.x, this.snake.y, snake.w, snake.h);
   }
 
 keyReleased(){
   if(keyCode === UP_ARROW){
-    this.loc.y = this.loc.y - this.h
+    this.snake.y = this.snake.y - snake.h
   }
   if(keyCode === DOWN_ARROW){
-    this.loc.y = this.loc.y + this.h
+    this.snake.y = this.snake.y + snake.h
   }
   if(keyCode === LEFT_ARROW){
-    this.loc.x = this.loc.x - this.w
+    this.snake.x = this.snake.x - snake.w
   }
   if(keyCode === RIGHT_ARROW){
-    this.loc.x = this.loc.x + this.w
+    this.snake.x = this.snake.x + snake.w
   }
 }
 //checkEdges(){
-//  if(this.loc.x > 800 ||
-  //  this.loc.x < 0 ||
-  //  this.loc.y > 800 ||
-  //  this. loc.y < 0){
+//  if(this.snake.x > 800 ||
+  //  this.snake.x < 0 ||
+  //  this.snake.y > 800 ||
+  //  this. snake.y < 0){
   //    clear();
   //  }
 }
