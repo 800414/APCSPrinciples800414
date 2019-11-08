@@ -9,15 +9,11 @@ class Food {
     this.render();
   }
   update(){
-    if(this.food.x + 15 > snake.x &&
-       this.food.x - 15 < snake.x + snake.w &&
-       this.food.y + 15 > snake.y &&
-       this.food.y - 15 < snake.y + snake.h)
-       {
-        return true;
+    if(snake.x === this.food.x &&
+        snake.y === this.food.y){
+        this.food.x = Math.floor(random(0,79))*30;
+        this.food.y = Math.floor(random(0,79))*30;
         this.clr = color(random(255), random(255), random(255));
-        this.food.x = random(100,700);
-        this.food.y = random(100, 700);
             }
   }
   render(){
