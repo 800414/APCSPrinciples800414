@@ -34,11 +34,19 @@ keyReleased(){
     this.snake.x = this.snake.x + snake.w
   }
 }
-//checkEdges(){
-//  if(this.snake.x > 800 ||
-  //  this.snake.x < 0 ||
-  //  this.snake.y > 800 ||
-  //  this. snake.y < 0){
-  //    clear();
-  //  }
+checkedges(){
+//bounce off edges
+  if(this.snake.x < 0){
+    this.vel.x = -this.vel.x;
+  }
+  if(this.snake.x > width){
+    this.vel.x = -this.vel.x;
+  }
+  if(this.snake.y < 0){
+    this.vel.y = -this.vel.y;
+  }
+  if(this.snake.y > height){
+    this.vel.y = -this.vel.y;
+  }
+  }
 }
