@@ -9,15 +9,16 @@ class Food {
     this.render();
   }
   update(){
-    //  if(this.food.x + 20 > snake.snake.x &&
-      //   this.food.x - 20 < snake.snake.x + snake.w &&
-        // this.food.y + 20 > snake.snake.y &&
-        // this.food.y - 20 < snake.snake.y + snake.h) //bounce off paddle
-        // {
-          // return true;
-          // var newfood = new Food(random(100,700), random(100,700));
-
-          // }
+    var i = 0;
+     if(snake.head.x + 15 >= this.food.x &&
+         snake.head.x - 15 <= this.food.x + this.w &&
+         snake.head.y + 15 > this.food.y &&
+         snake.head.y - 15 < this.food.y + this.h){
+           this.food.x = random(70,700);
+           this.food.y = random(70,700);
+           this.render();
+           snake.body.push(createVector(10,10));
+         }
           }
   render(){
     fill(66, 230, 245);

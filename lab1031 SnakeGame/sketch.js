@@ -2,8 +2,9 @@
 // 	Date or version number
 //  This is a comment
 //  The setup function function is called once when your program begins
-var snake = [];
+var snake;
 var food;
+var x = 0;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -17,17 +18,11 @@ function setup() {
 //  The draw function is called @ 30 fps
 function draw() {
   background(100,80,200);
-  for(var i = 0; i<1; i++){
-    snake[i].run();
-  }
-  food.run();
+    snake.run();
+    food.run();
 }
 
 function loadObjects(n){
-  for(var i = 0; i<n; i++){
-    snake[i] = new Snake (400,400,20,20);
-    }
-  for(var i = 0; i < n; i++){
+    snake = new Snake (400,400,20,20);
     food = new Food(random(70,700), random(50,400), this.w, this.h);
-  }
 }

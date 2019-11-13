@@ -1,37 +1,56 @@
 class Snake {
   constructor(x, y, w, h){
-    this.snake = createVector(x, y);
+    this.head = createVector(x, y);
     //this.clr = random(color(255));
     snake.w = w;
     snake.h = h;
+    this.body = [];
+    this.vel = createVector(0, 0);
   }
 
   run(){  //call upon render and update functions to make snake appear properly
-    this.render();
+    this.renderHead();
     this.update();
   }
 
   update(){
     this.keyReleased();
+    for(var i = this.body.length - 1; i >= 0; i--){
+      this.body[i].x - this.head.x + 15;
+      this.body[i].y = this.head.y + 15;
+      this.renderBody();
+    }
+    this.head.add(this.vel);
   }
 
-  render(){  //how snake appear on screen
+  renderHead(){  //how snake appear on screen
   fill(255,182,193);
-  rect (this.snake.x, this.snake.y, snake.w, snake.h);
+  rect (this.head.x, this.head.y, snake.w, snake.h);
+  }
+
+  renderBody(){
+    for(var i = this.body.length - 1; i >= 0; i--){
+      fill(255, 182, 193);
+      rect(this.body[i].x, this.body[i].y,snake.w, snake.h);
+    }
   }
 
 keyReleased(){
   if(keyCode === UP_ARROW){
-    this.snake.y = this.snake.y - snake.h
+    this.vel.x = 0;
+    thi.vel.y = -8;
   }
   if(keyCode === DOWN_ARROW){
-    this.snake.y = this.snake.y + snake.h
+    thid.vel.x = 0;
+    this.vel.y = 8;
   }
   if(keyCode === LEFT_ARROW){
-    this.snake.x = this.snake.x - snake.w
+    this.vel.x = -8;
+    this.vel.y = 0;
   }
   if(keyCode === RIGHT_ARROW){
-    this.snake.x = this.snake.x + snake.w
+    this.vel.x = 8;
+    this.vel.y = 0;
   }
 }
 checkedges(){
