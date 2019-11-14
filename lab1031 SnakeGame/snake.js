@@ -2,8 +2,8 @@ class Snake {
   constructor(x, y, w, h){
     this.head = createVector(x, y);
     //this.clr = random(color(255));
-    snake.w = w;
-    snake.h = h;
+    this.w = w;
+    this.h = h;
     this.body = [];
     this.vel = createVector(0, 0);
   }
@@ -38,7 +38,7 @@ class Snake {
 keyReleased(){
   if(keyCode === UP_ARROW){
     this.vel.x = 0;
-    thi.vel.y = -8;
+    this.vel.y = -8;
   }
   if(keyCode === DOWN_ARROW){
     thid.vel.x = 0;
