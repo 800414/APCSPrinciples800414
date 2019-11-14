@@ -25,31 +25,31 @@ class Snake {
 
   renderHead(){  //how snake appear on screen
   fill(255,182,193);
-  rect (this.head.x, this.head.y, snake.w, snake.h);
+  rect (this.head.x, this.head.y, this.w, this.h);
   }
 
   renderBody(){
     for(var i = this.body.length - 1; i >= 0; i--){
       fill(255, 182, 193);
-      rect(this.body[i].x, this.body[i].y,snake.w, snake.h);
+      rect(this.body[i].x, this.body[i].y,this.w, this.h);
     }
   }
 
 keyReleased(){
   if(keyCode === UP_ARROW){
     this.vel.x = 0;
-    this.vel.y = -8;
+    this.vel.y = -14;
   }
   if(keyCode === DOWN_ARROW){
-    thid.vel.x = 0;
-    this.vel.y = 8;
+    this.vel.x = 0;
+    this.vel.y = 14;
   }
   if(keyCode === LEFT_ARROW){
-    this.vel.x = -8;
+    this.vel.x = -14;
     this.vel.y = 0;
   }
   if(keyCode === RIGHT_ARROW){
-    this.vel.x = 8;
+    this.vel.x = 14;
     this.vel.y = 0;
   }
 }
