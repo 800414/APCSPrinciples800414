@@ -19,7 +19,7 @@ class Food {
            this.render();
            snake.body.push(createVector(10,10));
          }
-          }
+       }
   render(){
     fill(66, 230, 245);
     rect (this.food.x, this.food.y, food.w, food.h);
