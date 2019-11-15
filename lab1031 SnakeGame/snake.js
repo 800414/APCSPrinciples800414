@@ -8,9 +8,14 @@ class Snake {
     this.vel = createVector(0, 0);
   }
 
+  loadBody(){
+    this.body.push(createVector(this.head.x, this.head.y));
+  }
+
   run(){  //call upon render and update functions to make snake appear properly
     this.renderHead();
     this.update();
+    this.checkEdges();
   }
 
   update(){
@@ -18,9 +23,17 @@ class Snake {
     for(var i = this.body.length - 1; i >= 0; i--){
       //this.body[i].x - this.head.x + 15;
     //  this.body[i].y = this.head.y + 15;
-      this.body.push(createVector(this.head.x, this.head.y));
-      this.renderBody(1);
+      this.renderBody();
     }
+    for (i = this.body.length-1; i>=0; i--){
+    if (i >= 1){
+      this.body[i].x = this.body[i-1].x;
+      this.body[i].y = this.body[i-1].y;
+   }  if (i === 0){
+      this.body[i].x = this.head.x;
+      this.body[i].y = this.head.y;
+    }
+  }
     this.head.add(this.vel);
   }
 
@@ -29,7 +42,7 @@ class Snake {
   rect (this.head.x, this.head.y, this.w, this.h);
   }
 
-  renderBody(n){
+  renderBody(){
     for(var i = this.body.length - 1; i >= 0; i--){
       fill(255, 182, 193);
       rect(this.body[i].x, this.body[i].y,this.w, this.h);
@@ -54,19 +67,13 @@ keyReleased(){
     this.vel.y = 0;
   }
 }
-checkedges(){
+checkEdges(){
 //bounce off edges
-  if(this.snake.x < 0){
-    this.vel.x = -this.vel.x;
-  }
-  if(this.snake.x > width){
-    this.vel.x = -this.vel.x;
-  }
-  if(this.snake.y < 0){
-    this.vel.y = -this.vel.y;
-  }
-  if(this.snake.y > height){
-    this.vel.y = -this.vel.y;
-  }
+  if(this.head.x > 800 ||
+    this.head.x < 0 ||
+    this.head.y > 800 ||
+    this.head.y < 0){
+      clear();
+    }
   }
 }
