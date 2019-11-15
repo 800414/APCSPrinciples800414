@@ -16,9 +16,10 @@ class Snake {
   update(){
     this.keyReleased();
     for(var i = this.body.length - 1; i >= 0; i--){
-      this.body[i].x - this.head.x + 15;
-      this.body[i].y = this.head.y + 15;
-      this.renderBody();
+      //this.body[i].x - this.head.x + 15;
+    //  this.body[i].y = this.head.y + 15;
+      this.body.push(createVector(this.head.x, this.head.y));
+      this.renderBody(1);
     }
     this.head.add(this.vel);
   }
@@ -28,7 +29,7 @@ class Snake {
   rect (this.head.x, this.head.y, this.w, this.h);
   }
 
-  renderBody(){
+  renderBody(n){
     for(var i = this.body.length - 1; i >= 0; i--){
       fill(255, 182, 193);
       rect(this.body[i].x, this.body[i].y,this.w, this.h);
