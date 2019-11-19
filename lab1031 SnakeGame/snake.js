@@ -73,7 +73,7 @@ checkEdges(){
     this.head.x < 0 ||
     this.head.y > 800 ||
     this.head.y < 0){
-      clear();
+      gameState = 3;
     }
   }
 }
