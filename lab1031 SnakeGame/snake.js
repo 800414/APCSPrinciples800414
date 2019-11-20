@@ -76,4 +76,11 @@ checkEdges(){
       gameState = 3;
     }
   }
+  tangled(){
+    for(var i = 1; i < this.body.length; i++){
+      if(this.head.x == this.body[i].x && this.head.y == this.body[i].y){
+        return true;
+      }
+    }
+  }
 }
