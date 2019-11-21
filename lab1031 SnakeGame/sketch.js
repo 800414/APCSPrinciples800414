@@ -1,12 +1,12 @@
-//  Your Name
-// 	Date or version number
-//  This is a comment
+//  olivia cordero
+// 	11/20
+//  snake game
 //  The setup function function is called once when your program begins
-var snake;
+var snake;  //defining global variables
 var food;
 var gameState = 1;
 var startButton;
-var playAgainButton;
+var score = 0;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -20,13 +20,13 @@ function setup() {
 //  The draw function is called @ 30 fps
 function draw() {
   background(100,80,200);
-    snake.run();
-    food.run();
-    if(gameState === 1){
+    snake.run();  //snake appears
+    food.run();  //food object appears
+    if(gameState === 1){ //beginning splash screen
       startGame();
-    }else if(gameState === 2){
+    }else if(gameState === 2){  //playing game
       playGame();
-    }else if(gameState === 3){
+    }else if(gameState === 3){  //lose game end screen
       endGame();
     }
 
@@ -34,26 +34,30 @@ function draw() {
 
 function createButtons(){  //making buttons with different functions
   startButton = new Button(370, 600, 'START GAME!');
-  playAgainButton = new Button(370,500, 'PLAY AGAIN!');
 }
 
-function loadObjects(n){
+function loadObjects(n){  //appearance of snake and food
     snake = new Snake (400,400,20,20);
     food = new Food(random(70,700), random(50,400), this.w, this.h);
 }
 
 function startGame(){ //starting splash screen
-  clear();
   background(100,80,200);
   fill(5,5,5);
   textSize(50);
   text('SNAKE GAME', 240, 300);  //game title
   fill(5,5,5);
   textSize(20);
-  text('Instructions: Use the arrow keys to move the snake around the screen.', 120, 350);
-  text('Try to eat the food, and your snake will grow!', 120, 370);
+  text('Instructions: Use the arrow keys to move the snake around the screen.', 120, 350);  //instructions to game appear on screen
+  text('Your snake will begin as one box, but upon moving another box will appear.', 120, 370);
+  text('This second box is the body of your snake.', 120, 390)
+  text('Try to eat the food, and your snake will grow!', 120, 410);
+  text('Be careful to avoid the edges of the screen!', 120, 430);
+  text('Also make sure your snake does not get tangled in itself!', 120, 450);
+  text('If either of these things happen, game over!', 120, 470);
+  text('Have fun!', 120, 490);
   startButton.run();
-  if(mouseIsPressed &&  //button pressed, load medium mode
+  if(mouseIsPressed &&  //button pressed, load game mode
       mouseX > 370 &&
       mouseX < 430 &&
       mouseY > 600 &&
@@ -62,16 +66,12 @@ function startGame(){ //starting splash screen
         gameState = 2;
 }
 }
-function checkTangled(){
-  if(snake.tangled() === true){
-    gameState = 3;
-}
-}
 
-function playGame(){
+function playGame(){  //begin playing game
+  textSize(30);
+  text("Score: " + score, 10, 25); //score in top left corner
   snake.run();
   food.run();
-  checkTangled();
   }
 
 function endGame(){
@@ -79,14 +79,5 @@ function endGame(){
   background(255,50,100,10);
   textSize(50);
   text('OOPS! GAME OVER!', 160, 300);
-  playAgainButton.run();
-  if(mouseIsPressed &&  //button pressed, load medium mode
-      mouseX > 370 &&
-      mouseX < 430 &&
-      mouseY > 500 &&
-      mouseY < 560){
-        var snake;
-        var food;
-        gameState = 1;
-      }
+  text('YOUR FINAL SCORE WAS ' + score, 80, 350);  //final score appear on screen
     }
