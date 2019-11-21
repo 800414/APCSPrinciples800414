@@ -1,7 +1,7 @@
 //  olivia cordero
 // 	11/20
 //  snake game
-//  The setup function function is called once when your program begins
+//  The setup function is called once when your program begins
 var snake;  //defining global variables
 var food;
 var gameState = 1;

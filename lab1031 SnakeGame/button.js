@@ -1,7 +1,7 @@
 //  olivia cordero
 // 	11/20
 //  snake game
-//  The setup function function is called once when your program begins
+//  The setup function is called once when your program begins
 class Button {
   constructor(x, y, msg) {
     this.loc = createVector(x, y);
