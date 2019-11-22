@@ -6,6 +6,7 @@ var snake;  //defining global variables
 var food;
 var gameState = 1;
 var startButton;
+var playAgainButton;
 var score = 0;
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -34,6 +35,7 @@ function draw() {
 
 function createButtons(){  //making buttons with different functions
   startButton = new Button(370, 600, 'START GAME!');
+  playAgainButton = new Button(370, 460, 'PLAY AGAIN!');
 }
 
 function loadObjects(n){  //appearance of snake and food
@@ -80,4 +82,18 @@ function endGame(){
   textSize(50);
   text('OOPS! GAME OVER!', 160, 300);
   text('YOUR FINAL SCORE WAS ' + score, 80, 350);  //final score appear on screen
+  playAgainButton.run();
+  if(mouseIsPressed &&  //button pressed, restart game mode
+      mouseX > 370 &&
+      mouseX < 430 &&
+      mouseY > 460 &&
+      mouseY < 520){
+  snake.body = []; //each variable back to original value
+  snake.head.x = 400;  //snake head starts at middle of screen
+  snake.head.y = 400;
+  snake.vel = createVector(0,0); //starts not moving
+  keyCode = CONTROL;
+  gameState = 1;  //go to start screen
+  startGame();
     }
+}
