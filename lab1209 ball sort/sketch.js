@@ -18,7 +18,7 @@ function setup() {
 
 function draw() {
   bubbleSort();  //run bubble sorthing method
-
+}
 function loadBalls(num){
   for (var i = 0; i < num; i++){ //appearance of balls
     var xposition = 100 + 30*i;
