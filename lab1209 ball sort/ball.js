@@ -1,6 +1,6 @@
 //Olivia Cordero
-//9/11/19
-//PaddleBall GAME
+//12/09/19
+//ball sort
 //setup function is called upon once when program begins
 
 class Ball {
@@ -10,7 +10,7 @@ class Ball {
    this.shade = red;
   }
 
-  run(){
+  run(){  //make balls appear on screen
     this.render();
   }
 
@@ -18,7 +18,7 @@ class Ball {
       fill(this.clr);
       ellipse(this.loc.x, this.loc.y, 30, 30);  //ball appearances
     }
-    set(i){
+    set(i){ //setting ball at certain x values
       this.loc.x = 100 + 30*i;
     }
 }
