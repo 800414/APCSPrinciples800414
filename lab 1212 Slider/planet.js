@@ -31,7 +31,7 @@ class Planet {
 
   }
   update(){
-    this.vel.limit(6);
+    this.vel.limit(0);
     this.vel.add(this.acc);
     this.loc.add(this.vel);
   }
